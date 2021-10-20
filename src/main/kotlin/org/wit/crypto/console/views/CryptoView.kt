@@ -1,8 +1,7 @@
 package org.wit.crypto.console.views
 
-import org.wit.crypto.console.main.cryptoView
 import org.wit.crypto.console.main.cryptos
-import org.wit.crypto.console.models.CryptoMemStore
+import org.wit.crypto.console.models.CryptoJSONStore
 import org.wit.crypto.console.models.CryptoModel
 
 class CryptoView {
@@ -14,9 +13,11 @@ class CryptoView {
 
         println("MAIN MENU")
         println(" 1. Add Cryptocurrency")
-        println(" 2. Update Cryptocurrency Current Price (USD)")
+        println(" 2. Update Cryptocurrency")
         println(" 3. List All Cryptocurrencies")
-        println(" 4. Search Cryptocurrencies")
+        println(" 4. Search all Cryptocurrencies")
+        println(" 5. Delete Cryptocurrency")
+        println(" 6. View Crypto Wallet")
         println("-1. Exit")
         println()
         print("Enter Option : ")
@@ -28,7 +29,7 @@ class CryptoView {
         return option
     }
 
-    fun listCryptos(cryptos : CryptoMemStore) {
+    fun listCryptos(cryptos: CryptoJSONStore) {
         cryptos.logAll()
         println()
     }
@@ -89,9 +90,8 @@ class CryptoView {
         var tempCurrentPrice: Double?
 
         if (crypto != null) {
-            print("Enter a new Current Price per coin (USD) for [ " + crypto.name + " ] : ")
+            print("Enter a new Current Price per share (USD) for [ " + crypto.current_price_usd + " ] : ")
             tempCurrentPrice = readLine()!!.toDouble()
-
 
             if (tempCurrentPrice != null) {
                 crypto.current_price_usd = tempCurrentPrice
@@ -99,6 +99,21 @@ class CryptoView {
             }
         }
         return false
+    }
+
+    fun deleteCryptoData(crypto: CryptoModel) : Boolean {
+
+        print("Enter ID of Crypto to Delete : ")
+        listCryptos(cryptos)
+        var id = readLine()!!.toLong()
+        var foundCrypto = cryptos.findOne(id)
+        if (foundCrypto != null) {
+            cryptos.delete(foundCrypto)
+        }
+        print("Cryptocurrency Deleted")
+
+        return crypto.name.isEmpty() && crypto.symbol.isEmpty() && crypto.initial_price_usd == null
+                && crypto.amount_invested_usd == null && crypto.current_price_usd == null
     }
 
     fun getId() : Long {
@@ -113,3 +128,5 @@ class CryptoView {
         return searchId
     }
 }
+
+

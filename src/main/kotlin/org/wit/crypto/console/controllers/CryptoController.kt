@@ -1,19 +1,20 @@
 package org.wit.crypto.console.controllers
 
 import mu.KotlinLogging
-import org.wit.crypto.console.models.CryptoMemStore
+import org.wit.crypto.console.models.CryptoJSONStore
 import org.wit.crypto.console.models.CryptoModel
 import org.wit.crypto.console.views.CryptoView
 
 class CryptoController {
 
-    val cryptos = CryptoMemStore()
+    //val cryptos = CryptoMemStore()
+    val cryptos = CryptoJSONStore()
     val cryptoView = CryptoView()
     val logger = KotlinLogging.logger {}
 
     init {
-        logger.info { "Launching Cryptocurrency Console App" }
-        println("Placemark Kotlin App Version 2.0")
+        logger.info { "Launching Crypto Console App" }
+        println("Crypto Kotlin App Version 1.0")
     }
 
     fun start() {
@@ -26,13 +27,14 @@ class CryptoController {
                 2 -> update()
                 3 -> list()
                 4 -> search()
+                5 -> delete()
                 -99 -> dummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
             }
             println()
         } while (input != -1)
-        logger.info { "Shutting Down Placemark Console App" }
+        logger.info { "Shutting Down Crypto Console App" }
     }
 
     fun menu() :Int { return cryptoView.menu() }
@@ -43,7 +45,7 @@ class CryptoController {
         if (cryptoView.addCryptoData(aCrypto))
             cryptos.create(aCrypto)
         else
-            logger.info("Cryptocurrency Not Added")
+            logger.info("Crypto Not Added")
     }
 
     fun list() {
@@ -60,13 +62,13 @@ class CryptoController {
             if(cryptoView.updateCryptoData(aCrypto)) {
                 cryptos.update(aCrypto)
                 cryptoView.showCrypto(aCrypto)
-                logger.info("Cryptocurrency Updated : [ $aCrypto ]")
+                logger.info("Crypto Updated : [ $aCrypto ]")
             }
             else
-                logger.info("Cryptocurrency Not Updated")
+                logger.info("Crypto Not Updated")
         }
         else
-            println("Cryptocurrency Not Updated...")
+            println("Crypto Not Updated...")
     }
 
     fun search() {
@@ -74,9 +76,24 @@ class CryptoController {
         cryptoView.showCrypto(aCrypto)
     }
 
+
     fun search(id: Long) : CryptoModel? {
         var foundCrypto = cryptos.findOne(id)
         return foundCrypto
+    }
+
+    fun delete() {
+        cryptoView.listCryptos(cryptos)
+        var searchId = cryptoView.getId()
+        val aCrypto = search(searchId)
+
+        if(aCrypto != null) {
+            cryptos.delete(aCrypto)
+            println("Cryptocurrency Deleted...")
+            cryptoView.listCryptos(cryptos)
+        }
+        else
+            println("Cryptocurrency Not Deleted...")
     }
 
     fun dummyData() {

@@ -1,0 +1,13 @@
+[
+  {
+    "id": -595503602976030485,
+    "name": "Cardano",
+    "symbol": "ADA",
+    "initial_price_usd": 1.05,
+    "amount_invested_usd": 1000.0,
+    "num_shares": 952.3809523809523,
+    "current_price_usd": 2.2,
+    "investment_value": 2095.2380952380954,
+    "return_on_investment": 1095.2380952380954
+  }
+]

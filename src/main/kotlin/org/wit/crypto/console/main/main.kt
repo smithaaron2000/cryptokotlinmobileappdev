@@ -1,19 +1,20 @@
 package org.wit.crypto.console.main
 
 import mu.KotlinLogging
-import org.wit.crypto.console.controllers.CryptoController
-import org.wit.crypto.console.models.CryptoMemStore
 import org.wit.crypto.console.models.CryptoModel
 import org.wit.crypto.console.views.CryptoView
+import org.wit.crypto.console.controllers.CryptoController
+import org.wit.crypto.console.models.CryptoJSONStore
 
 private val logger = KotlinLogging.logger {}
 
-val cryptos = CryptoMemStore()
+val cryptos = CryptoJSONStore()
+//val cryptos = CryptoMemStore()
 val cryptoView = CryptoView()
 
 fun main(args: Array<String>) {
     logger.info { "Launching Crypto Console App" }
-    println("Crypto Kotlin App Version 2.0")
+    println("Crypto Kotlin App Version 1.0")
 
     var input: Int
     val controller = CryptoController()
@@ -25,6 +26,8 @@ fun main(args: Array<String>) {
             2 -> updateCrypto()
             3 -> cryptoView.listCryptos(cryptos)
             4 -> searchCrypto()
+            5 -> deleteCrypto()
+            6 -> viewWallet()
             -99 -> dummyData()
             -1 -> println("Exiting App")
             else -> println("Invalid Option")
@@ -34,7 +37,8 @@ fun main(args: Array<String>) {
     logger.info { "Shutting Down Crypto Console App" }
 }
 
-fun addCrypto() {
+
+fun addCrypto(){
     var aCrypto = CryptoModel()
 
     if (cryptoView.addCryptoData(aCrypto))
@@ -67,9 +71,24 @@ fun searchCrypto() {
     cryptoView.showCrypto(aCrypto)
 }
 
+fun deleteCrypto(){
+    var aCrypto = CryptoModel()
+
+    if (cryptoView.deleteCryptoData(aCrypto))
+        cryptos.delete(aCrypto)
+}
+
+
 fun search(id: Long) : CryptoModel? {
-    var foundCrypto: CryptoModel? = cryptos.findOne(id)
+    var foundCrypto = cryptos.findOne(id)
     return foundCrypto
+}
+
+fun viewWallet() {
+    //take current worth of each crypto (amount invested * current price)
+    //take crypto worth and add them all together
+    //show current worth of wallet
+    //show return on investment as a %
 }
 
 fun dummyData() {

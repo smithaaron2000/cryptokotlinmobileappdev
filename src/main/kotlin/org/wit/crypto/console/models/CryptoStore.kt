@@ -5,4 +5,5 @@ interface CryptoStore {
     fun findOne(id: Long): CryptoModel?
     fun create(crypto: CryptoModel)
     fun update(crypto: CryptoModel)
+    fun delete(crypto: CryptoModel)
 }
