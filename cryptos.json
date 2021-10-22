@@ -6,8 +6,30 @@
     "initial_price_usd": 1.05,
     "amount_invested_usd": 1000.0,
     "num_shares": 952.3809523809523,
-    "current_price_usd": 2.2,
-    "investment_value": 2095.2380952380954,
-    "return_on_investment": 1095.2380952380954
+    "current_price_usd": 2.7,
+    "investment_value": 2571.4285714285716,
+    "return_on_investment": 1571.4285714285716
+  },
+  {
+    "id": 681363705847545843,
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "initial_price_usd": 55000.0,
+    "amount_invested_usd": 1000.0,
+    "num_shares": 0.01818181818181818,
+    "current_price_usd": 65000.0,
+    "investment_value": 1181.8181818181818,
+    "return_on_investment": 181.81818181818176
+  },
+  {
+    "id": 5076450931305133895,
+    "name": "Ethereum",
+    "symbol": "ETH",
+    "initial_price_usd": 3127.0,
+    "amount_invested_usd": 1000.0,
+    "num_shares": 0.3197953309881676,
+    "current_price_usd": 4123.0,
+    "investment_value": 1318.516149664215,
+    "return_on_investment": 318.51614966421494
   }
 ]

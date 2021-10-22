@@ -2,6 +2,7 @@ package org.wit.crypto.console.views
 
 import org.wit.crypto.console.main.cryptos
 import org.wit.crypto.console.models.CryptoJSONStore
+import org.wit.crypto.console.models.CryptoMemStore
 import org.wit.crypto.console.models.CryptoModel
 
 class CryptoView {
@@ -17,7 +18,6 @@ class CryptoView {
         println(" 3. List All Cryptocurrencies")
         println(" 4. Search all Cryptocurrencies")
         println(" 5. Delete Cryptocurrency")
-        println(" 6. View Crypto Wallet")
         println("-1. Exit")
         println()
         print("Enter Option : ")
