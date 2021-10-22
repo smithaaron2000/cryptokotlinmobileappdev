@@ -8,7 +8,7 @@ import org.wit.crypto.console.views.CryptoView
 class CryptoController {
 
     //val cryptos = CryptoMemStore()
-    val cryptos = CryptoJSONStore()
+    val cryptos = CryptoJSONStore(false)
     val cryptoView = CryptoView()
     val logger = KotlinLogging.logger {}
 

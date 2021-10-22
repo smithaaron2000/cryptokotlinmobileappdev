@@ -1,5 +1,11 @@
 package org.wit.crypto.console.main
 
+//import org.wit.crypto.console.controllers.CryptoController
+//
+//fun main(args: Array<String>) {
+//    CryptoController().start()
+//}
+
 import mu.KotlinLogging
 import org.wit.crypto.console.models.CryptoModel
 import org.wit.crypto.console.views.CryptoView
@@ -8,7 +14,7 @@ import org.wit.crypto.console.models.CryptoJSONStore
 
 private val logger = KotlinLogging.logger {}
 
-val cryptos = CryptoJSONStore()
+val cryptos = CryptoJSONStore(false)
 //val cryptos = CryptoMemStore()
 val cryptoView = CryptoView()
 

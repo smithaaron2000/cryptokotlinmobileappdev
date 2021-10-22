@@ -1,0 +1,46 @@
+[
+  {
+    "id": -595503602976030485,
+    "name": "Cardano",
+    "symbol": "ADA",
+    "initial_price_usd": 1.05,
+    "amount_invested_usd": 1000.0,
+    "num_shares": 952.3809523809523,
+    "current_price_usd": 2.8,
+    "investment_value": 2666.666666666666,
+    "return_on_investment": 1666.666666666666
+  },
+  {
+    "id": 681363705847545843,
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "initial_price_usd": 55000.0,
+    "amount_invested_usd": 1000.0,
+    "num_shares": 0.01818181818181818,
+    "current_price_usd": 65000.0,
+    "investment_value": 1181.8181818181818,
+    "return_on_investment": 181.81818181818176
+  },
+  {
+    "id": 5735069202412856014,
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "initial_price_usd": 50000.0,
+    "amount_invested_usd": 1000.0,
+    "num_shares": 0.02,
+    "current_price_usd": 65000.0,
+    "investment_value": 1300.0,
+    "return_on_investment": 300.0
+  },
+  {
+    "id": -5662744434541927663,
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "initial_price_usd": 50000.0,
+    "amount_invested_usd": 1000.0,
+    "num_shares": 0.02,
+    "current_price_usd": 65000.0,
+    "investment_value": 1300.0,
+    "return_on_investment": 300.0
+  }
+]
